@@ -11,6 +11,8 @@ $routes->post('/', 'Home::index');
 $routes->get('menus', 'Home::menus');
 $routes->post('menus', 'Home::menus');
 
+$routes->get('booktable', 'Home::booktable');
+$routes->post('booktable', 'Home::booktable');
 
 
 // ADMIN SECTION |----------------------------------------------------------------
@@ -47,6 +49,16 @@ $routes->get('edit-franchise/(:num)', 'Franchise::edit_franchise/$1');
 $routes->post('edit-franchise/(:num)', 'Franchise::edit/$1');
 
 
+// TABLES SECTION |----------------------------------------------------------------
+
+$routes->get('tables', 'Tables::index');
+$routes->post('tables', 'Tables::index');
+
+$routes->get('delete-tables/(:any)', 'Tables::delete/$1');
+$routes->post('delete-tables/(:any)', 'Tables::delete/$1');
+
+$routes->get('edit-tables/(:num)', 'Tables::edit_tables/$1');
+$routes->post('edit-tables/(:num)', 'Tables::edit/$1');
 
 
 

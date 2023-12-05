@@ -22,6 +22,11 @@ class Home extends BaseController
     {
         return view('Home/menus');
     }
+    
+    public function booktable()
+    {
+        return view('Home/booktable');
+    }
 
 
 }
