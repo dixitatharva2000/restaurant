@@ -10,12 +10,12 @@ $session = session();
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Franchise</h1>
+          <h1>Tables</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Franchise</li>
+            <li class="breadcrumb-item active">Tables</li>
           </ol>
         </div>
       </div>
@@ -131,7 +131,7 @@ $session = session();
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Franchise</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Table</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -141,25 +141,21 @@ $session = session();
           <div class="row">
             <div class="form-group col-6">
               <label for="restaurent">Choose Restaurant</label>
-              <select name="restaurent_id" class="form-control" id="">
-                <?php foreach ($restaurent as $value) {
-                  if ($value->franchise === 'Yes') {
-                    ?>
-                    <option value="<?= $value->restaurent_id; ?>">
-                      <?= $value->restaurent_name; ?>
-                    </option>
-                    <?php
-                  }
-                } ?>
+              <select type="text" class="form-control" name="restaurent_id" onchange="getRestaurent(this.value)">
+                <option value="" selected disabled>Select Restaurent</option>
+                <?php foreach ($restaurent as $value) { ?>
+                  <option value="<?= $value->restaurent_id; ?>">
+                    <?= $value->restaurent_name; ?>
+                  </option>
+                <?php } ?>
               </select>
             </div>
 
-
-
             <div class="form-group col-6">
               <label for="franchisename">Franchise Name</label>
-              <input type="text" id="franchisename" class="form-control" name="franchise_name"
-                placeholder="Enter Franchise Name">
+              <select type="text" class="form-control" name="franchise_id" id="franchise">
+                <option value="">Select State</option>
+              </select>
             </div>
 
             <div class="form-group col-6">
@@ -267,6 +263,17 @@ $session = session();
       }, 2000);
     }
   });
+
+
+  function getRestaurent(restaurent_id) {
+
+    $.ajax({
+      url: '<?= base_url('get-franchise/'); ?>' + restaurent_id,
+      success: function (result) {
+        $('#franchise').html(result);
+      }
+    });
+  }
 </script>
 <?php
 include('footer.php');

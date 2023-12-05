@@ -2,13 +2,17 @@
 
 namespace App\Controllers;
 
-use App\Models\TablesModel;;
+use App\Models\CommonModel;
+use App\Models\TablesModel;
+use App\Models\FranchiseModel;
 
 class Tables extends BaseController
 {
     function __construct()
     {
-        $this->TablesModel = new TablesModel();
+        $this->TablesModel    = new TablesModel();
+        $this->CommonModel    = new CommonModel();
+        $this->FranchiseModel = new FranchiseModel();
         $this->session        = \Config\Services::session();
         $this->session->start();
     }
@@ -28,7 +32,7 @@ class Tables extends BaseController
         }
         $data['franchise']  = $this->TablesModel->getData('tbl_franchise');
         $data['restaurent'] = $this->TablesModel->getData('tbl_restaurent');
-        return view('Admin/franchise', $data);
+        return view('Admin/tables', $data);
 
 
     }
@@ -63,6 +67,17 @@ class Tables extends BaseController
         if ($this->TablesModel->deleteData('tbl_franchise', 'franchise_id', $id)) {
             $this->session->setFlashdata('delete', '<div id="sessionAlert" class="alert alert-danger">Franchise Successfully Deleted</div>');
             return redirect()->to('franchise');
+        }
+
+    }
+
+
+    function getfranchise($id)
+    {
+
+        $franchise = $this->TablesModel->getWhere('tbl_franchise', 'franchise_id', $id);
+        foreach ($franchise as $value) {
+            echo '<option value="' . $value->franchise_id . '"}>' . $value->franchise_name . '</option>';
         }
 
     }

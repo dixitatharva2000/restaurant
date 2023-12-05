@@ -60,6 +60,8 @@ $routes->post('delete-tables/(:any)', 'Tables::delete/$1');
 $routes->get('edit-tables/(:num)', 'Tables::edit_tables/$1');
 $routes->post('edit-tables/(:num)', 'Tables::edit/$1');
 
+$routes->get('get-franchise/(:num)', 'Tables::getfranchise/$1');
+$routes->post('get-franchise/(:num)', 'Tables::getfranchise/$1');
 
 
 
