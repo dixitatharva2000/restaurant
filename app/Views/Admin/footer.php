@@ -1,6 +1,6 @@
 <footer class="main-footer">
 
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">Esenceweb IT</a>.</strong>
 
     All rights reserved.
 
@@ -129,7 +129,7 @@
 
 <script src="<?= base_url(); ?>static/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
 
 
@@ -159,7 +159,7 @@
 
 
 
-
+    // EDIT-Restaurant 
 
     function editrestaurent(restaurent_id) {
 
@@ -192,6 +192,68 @@
             type: 'get',
             success: function (result) {
                 $('#form-data').html(result);
+            }
+        });
+    }
+
+
+ 
+ // EDIT-TABLES 
+
+    function edittables(table_id) {
+        $('#edittables_modal').modal('show');
+        $.ajax({
+            url: '<?= base_url('edit-table/'); ?>' + table_id,
+            type: 'get',
+            success: function (result) {
+                $('#form-data').html(result);
+            }
+        });
+    }
+
+
+ // EDIT-SubCategory 
+
+    function editcategory(category_id){
+
+        $('#editcategory_modal').modal('show');
+        $.ajax({
+
+            url:'<?=base_url('edit-category/');?>' + category_id ,
+            type:'get',
+            success:function(result){
+
+                $('#formdata').html(result);
+            }
+
+
+        });
+
+    }
+
+// EDIT-SubCategory 
+
+      function editsubcategory(subcategory_id) {
+        $('#editsubcategory_modal').modal('show');
+        $.ajax({
+            url: '<?= base_url('edit-subcategory/'); ?>' + subcategory_id,
+            type: 'get',
+            success: function (result) {
+                $('#formdata').html(result);
+            }
+        });
+    }
+
+
+     // EDIT-MENU 
+
+     function editmenu(menu_id) {
+        $('#editmenu_modal').modal('show');
+        $.ajax({
+            url: '<?= base_url('edit-menu/'); ?>' + menu_id,
+            type: 'get',
+            success: function (result) {
+                $('#formdata').html(result);
             }
         });
     }

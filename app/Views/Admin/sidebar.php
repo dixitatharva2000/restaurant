@@ -11,12 +11,12 @@ $session = session();
 
     <!-- Brand Logo -->
 
-    <a href="index3.html" class="brand-link">
+    <a href="dashboard.php" class="brand-link " style="  background-color: #7f1766;" >
 
         <img src="<?= base_url(); ?>static/admin/dist/img/logo.png" alt="AdminLTE Logo" class=" img-circle"
             height="45px">
 
-        <span class="brand-text text-white">Cafe Management</span>
+        <span class="brand-text text-white ">Cafe Management</span>
 
     </a>
 
@@ -160,6 +160,70 @@ $session = session();
 
 
 
+                <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Masters
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=base_url('category');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Category</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=base_url('subcategory');?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sub Category</p>
+                </a>
+              </li>
+            
+            </ul>
+          </li>
+
+                <li class="nav-item">
+
+                 <a href="<?= base_urL('menu'); ?>" class="nav-link">
+
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+
+                <p class="text-white">
+
+                    Menu
+
+                </p>
+
+                </a>
+
+                </li>
+
+
+
+
+                <li class="nav-item">
+
+                            <a href="<?= base_urL('orders'); ?>" class="nav-link">
+
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+
+                                <p class="text-white">
+
+                                    orders
+
+                                </p>
+
+                             </a>
+
+                </li>
+
+               
+
+
+
 
 
                 <li class="nav-header">LABELS</li>
@@ -175,6 +239,19 @@ $session = session();
                     </a>
 
                 </li>
+
+                <li class="nav-item">
+
+                            <a href="<?= base_url('settings'); ?>" class="nav-link">
+
+                             <i class="nav-icon far fa-circle text-danger"></i>
+
+                             <p class="text-white">Settings</p>
+
+                            </a>
+
+                </li>
+
 
             </ul>
 
